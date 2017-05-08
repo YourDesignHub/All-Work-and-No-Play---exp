@@ -59,14 +59,7 @@ export default class App extends PixelComponent {
 	}
 
 	onClickClear( event){
-		var textChunks = [
-		{ id: 1, text: 'All' },
-				{ id: 2, text: 'Work' },
-				{ id: 3, text: 'No Play' },
-				{ id: 4, text: 'Make Jack' },
-				{ id: 5, text: 'a Dull boy' }
-		]
-
+		window.location.reload();
 	}
 
 	returnRandText() {
@@ -107,7 +100,6 @@ export default class App extends PixelComponent {
 		return (
 			<div className={AppStyles.container}>
 				<h1>All Work and No Play</h1>
-				<h2>Jacks Current Mood: {randText.text}</h2>
 				{this.state.rows.map((rows, index) => (
 					<div className={bootstrap.row}>
 						{this.state.slices.map((slices) => (
@@ -121,7 +113,10 @@ export default class App extends PixelComponent {
 						))}
 					</div>
 				))}
+				<div className={AppStyles.containerRight}>
+
 				<div className={bootstrap.row}>
+					<h1>Modify Jack's List</h1>
 					<button className={AppStyles.button} onClick={this.onClickRefresh}>Refresh</button>
 					<button className={AppStyles.button} onClick={this.onClickClear}>Clear Board</button>
 				</div>
@@ -133,8 +128,9 @@ export default class App extends PixelComponent {
 					<label><h3>Slices:</h3>
 						<input type="text" className={AppStyles.input} value={this.state.slices.length} onChange={this.sliceChange} />
 					</label>
+						<h2>Jacks Current Mood: {randText.text}</h2>
 				</div>
-
+				</div>
 			</div>
 		)
 	}

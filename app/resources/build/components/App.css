@@ -9,7 +9,19 @@ body{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	color:white;
     position: absolute;
-padding-left:120px;
+    padding-left:120px;
+}
+
+.containerRight {
+    float:right;	
+    top:120px;
+    left:850px;
+    width:60%;
+	background: black;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color:white;
+    position: absolute;
+
 }
 
 .img{
