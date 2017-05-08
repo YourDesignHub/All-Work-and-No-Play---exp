@@ -67,6 +67,7 @@
     "common-js": "^0.3.8",
     "commonjs": "0.0.1",
     "express": "^4.13.4",
+    "lodash": "^4.17.4",
     "mkdirp": "^0.5.1",
     "pug": "^2.0.0-beta11",
     "react": "^0.14.9",
