@@ -1,4 +1,4 @@
-# FracPicasso
+# All work and no play Make Jack ...
 
-Experiment with React and Three JS 
+Experiment with React
 
