@@ -1,0 +1,7 @@
+{
+	"port" : 4000,
+	"enableHotLoading" : false,
+	"enableDevMode" : false,
+	"location" : "Manchester",
+	"dataPath": "./data"
+}

@@ -1,0 +1,18 @@
+mixin addScript( src )
+	script(src=src)
+
+mixin addStyle( src )
+	link(rel="stylesheet" href=src)
+
+html
+	head
+		each style, index in (locals.styles || [])
+			+addStyle( style )
+	body
+		script.
+			window.config = !{JSON.stringify(_config)};
+		
+		#root
+		+addScript('/bundles/vendor.bundle.js')
+		each script, index in (locals.scripts || [])
+			+addScript( script )
