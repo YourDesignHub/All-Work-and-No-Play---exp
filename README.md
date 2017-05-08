@@ -1,4 +1,4 @@
-# Resource Manager
+# FracPicasso
 
-Displays internal Pixel Resources as groups (e.g. Support, Developers )
+Experiment with React and Three JS 
 
