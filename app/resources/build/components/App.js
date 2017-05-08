@@ -21,12 +21,11 @@ export default class App extends PixelComponent {
 				},
 			],
 			appSelected: null,
-
-			slices: 16,
-			rows: 4
-
+			slices: [1,2,3,4],
+			rows: [1,2,3,4]
 		}
 	}
+
 
 	onClickOpen() {
 		document.getElementById("mySidenav").style.left = "0px";
@@ -36,53 +35,29 @@ export default class App extends PixelComponent {
 		document.getElementById("mySidenav").style.left = "-250px";
 	}
 
-	onClickSlice(){
+	onClickSlice() {
 		document.getElementById("mySidenav").style.left = "-250px";
 
 	}
 
-
-
 	render() {
 
-	var slices = this.state.slices;
-	var rows = this.state.rows;
-		return <div className={AppStyles.container}>
+		var slices = this.state.slices;
+		var rows = this.state.rows;
+
+		return (
+			<div className={AppStyles.container}>
 			<h1>FracPicasso</h1>
+				
 				<div className={AppStyles.img}>
-
-					<div className={bootstrap.row}>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-					</div>
-
+					({this.state.rows.map((rows, index) => (
 						<div className={bootstrap.row}>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
+						({this.state.slices.map((slices, index) => (
+						<div className={AppStyles.imgSlice}/>	
+						))}
 					</div>
-
-					<div className={bootstrap.row}>
-						<div className={AppStyles.imgSlice} onClick={this.onClickSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-					</div>
-
-							<div className={bootstrap.row}>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-						<div className={AppStyles.imgSlice}></div>
-					</div>
-
-
+					))}
+				</div>
 			</div>
-		</div>
-	}
+		)}
 }
-
-
