@@ -4,11 +4,12 @@ body{
 
 .container {	
 	height:100%;
+    width:100%;
 	background: black;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	color:white;
     position: absolute;
-    left:200px;
+padding-left:120px;
 }
 
 .img{
@@ -41,4 +42,18 @@ body{
 	border: 2px solid red;
 	padding:0;
 	float:left;
+}
+
+.button{
+    background-color:white;
+    font-size:30px;
+    color:black;
+    padding-top:20px;
+}
+
+.input{
+    width:50px;
+     font-size:15px;
+    color:black;
+    padding-top:15px;
 }

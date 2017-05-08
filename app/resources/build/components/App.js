@@ -12,7 +12,7 @@ import _ from 'lodash';
 export default class App extends PixelComponent {
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			slices: [
 				{ id: 1 },
@@ -23,12 +23,12 @@ export default class App extends PixelComponent {
 			],
 			rows: [1, 2, 3, 4, 5],
 			textChunks: [
-				{id: 1,text: 'All'},
-				{id: 2,text: 'Work'},
-				{id: 3,text: 'No Play'},
-				{id: 4,text: 'Make Jack'},
-				{id: 5,text: 'a Dull boy'}
-				],
+				{ id: 1, text: 'All' },
+				{ id: 2, text: 'Work' },
+				{ id: 3, text: 'No Play' },
+				{ id: 4, text: 'Make Jack' },
+				{ id: 5, text: 'a Dull boy' }
+			],
 			randText: ''
 		}
 	}
@@ -43,13 +43,12 @@ export default class App extends PixelComponent {
 
 	onClickChunk(event) {
 		var textChunks = this.state.textChunks;
-		var currentChunk =  event.target.getAttribute('value');
+		var currentChunk = event.target.getAttribute('value');
 
-		console.log( currentChunk );
+		console.log(currentChunk);
 	}
 
-	randomise_Chunks() {
-
+	onClickRandomise(evt) {
 		var textChunks = this.state.textChunks;
 		var randomise_Values = _.sample(textChunks);
 
@@ -60,7 +59,7 @@ export default class App extends PixelComponent {
 
 		this.setState()
 		{
-			textChunks : textChunks
+			textChunks: textChunks
 		}
 
 	}
@@ -84,17 +83,31 @@ export default class App extends PixelComponent {
 					<div className={bootstrap.row}>
 						{this.state.slices.map((slices) => (
 							<div key={slices.id} className={AppStyles.imgSlice}>
-									{this.state.textChunks.map((textChunks) => (
+								{this.state.textChunks.map((textChunks) => (
 									<div key={textChunks.id} onClick={this.onClickChunk}>
-										<p value = {randomise_Values.text}>{randomise_Values.text}</p>
+										<p value={randomise_Values.text}>{randomise_Values.text}</p>
 									</div>
 								))}
 							</div>
 						))}
 					</div>
 				))}
-				<div><p>{textChunks.text}</p></div>
+				<div className={bootstrap.row}>
+					<button className={AppStyles.button} onClick={this.onClickRandomise}>Randomise</button>
+					<button className={AppStyles.button} onClick={this.onClickRandomise}>Clear Board</button>
+				</div>
+
+				<div className={bootstrap.row}>
+					<label><h3>Rows:</h3>
+						<input type="text" className={AppStyles.input} value={this.state.rows.length} onChange={this.rowChange} />
+					</label>
+					<label><h3>Slices:</h3>
+						<input type="text" className={AppStyles.input} value={this.state.slices.length} onChange={this.sliceChange} />
+					</label>
+				</div>
+				
 			</div>
 		)
 	}
+
 }
