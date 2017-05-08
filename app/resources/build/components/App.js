@@ -12,16 +12,8 @@ import _ from 'lodash';
 export default class App extends PixelComponent {
 	constructor(props) {
 		super(props);
-
-
+		
 		this.state = {
-			apps: [
-				{
-					title: 'Resource Manager',
-					url: 'http://localhost:4000/Resources'
-				},
-			],
-			appSelected: null,
 			slices: [
 				{ id: 1 },
 				{ id: 2 },
@@ -32,23 +24,14 @@ export default class App extends PixelComponent {
 			rows: [1, 2, 3, 4, 5],
 			textChunks: [
 				{id: 1,text: 'All'},
-
-				{id: 2,text: 'Work'
-				},
-
-				{id: 3,text: 'No Play'
-				},
-
-				{id: 4,text: 'Make Jack'
-				},
-
-				{id: 5,text: 'a Dull boy'
-				}
-			],
+				{id: 2,text: 'Work'},
+				{id: 3,text: 'No Play'},
+				{id: 4,text: 'Make Jack'},
+				{id: 5,text: 'a Dull boy'}
+				],
 			randText: ''
 		}
 	}
-
 
 	onClickOpen() {
 		document.getElementById("mySidenav").style.left = "0px";
@@ -58,10 +41,11 @@ export default class App extends PixelComponent {
 		document.getElementById("mySidenav").style.left = "-250px";
 	}
 
-	onClickSlice(evt) {
+	onClickChunk(event) {
 		var textChunks = this.state.textChunks;
-		var currentSlice = EventTarget;
-		alert('Message', textChunks, '!!!');
+		var currentChunk =  event.target.getAttribute('value');
+
+		console.log( currentChunk );
 	}
 
 	randomise_Chunks() {
@@ -95,20 +79,21 @@ export default class App extends PixelComponent {
 
 		return (
 			<div className={AppStyles.container}>
-				<h1>FracPicasso</h1>
-				({this.state.rows.map((rows, index) => (
+				<h1>All Work and No Play</h1>
+				{this.state.rows.map((rows, index) => (
 					<div className={bootstrap.row}>
-						({this.state.slices.map((slices) => (
-							<div key={slices.id} className={AppStyles.imgSlice} onClick={this.onClickSlice}>
+						{this.state.slices.map((slices) => (
+							<div key={slices.id} className={AppStyles.imgSlice}>
 									{this.state.textChunks.map((textChunks) => (
-									<div key={textChunks.id}>
-										<p>{randomise_Values.text}</p>
+									<div key={textChunks.id} onClick={this.onClickChunk}>
+										<p value = {randomise_Values.text}>{randomise_Values.text}</p>
 									</div>
 								))}
 							</div>
 						))}
 					</div>
 				))}
+				<div><p>{textChunks.text}</p></div>
 			</div>
 		)
 	}
